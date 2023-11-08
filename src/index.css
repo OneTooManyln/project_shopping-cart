@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+#box {
+  position: relative;
+}
+
+#box:after {
+  content: "";
+  height: 2px;
+  width: 194%;
+  /* width: 141.421%; */
+  background-color: rgb(251, 113, 153);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  transform: rotate(45deg);
+  transform-origin: 1px 1px;
+}
