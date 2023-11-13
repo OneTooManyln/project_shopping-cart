@@ -14,7 +14,7 @@ body {
 #box:after {
   content: "";
   height: 2px;
-  width: 194%;
+  width: 187%;
   /* width: 141.421%; */
   background-color: rgb(251, 113, 153);
   position: absolute;
