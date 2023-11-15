@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Slideshow() {
   const images = [
     { url: "src/assets/181994333_1883185495167039_3378746544883127820_n.jpg" },
@@ -7,14 +9,22 @@ export default function Slideshow() {
     { url: "src/assets/123225339_1727404550745135_6616891483531086405_n.jpg" },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
   return (
     <div className="slideshow-wrapper px-[20px]">
       <div className="slideshow bg-black max-w-[1200px] mx-auto mt-[1.25%]">
         <div className="slideshow-images bg-black w-[54%]">
           <img
-            src={images[0].url}
+            src={images[currentIndex].url}
             alt=""
             className="slideshow-image max-h-[360px] min-w-[100%] object-cover"
+            onClick={() => nextSlide()}
           />
         </div>
       </div>
