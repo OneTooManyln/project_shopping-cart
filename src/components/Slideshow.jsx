@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Slideshow() {
   const images = [
@@ -10,11 +10,27 @@ export default function Slideshow() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1);
 
   const nextSlide = () => {
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setOpacity(0);
+    setTimeout(() => {
+      const newIndex =
+        currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+      setCurrentIndex(newIndex);
+      setOpacity(1);
+    }, 300);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextSlide();
+    }, 3500);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [currentIndex]);
 
   return (
     <div className="slideshow-wrapper px-[20px]">
@@ -23,8 +39,8 @@ export default function Slideshow() {
           <img
             src={images[currentIndex].url}
             alt=""
-            className="slideshow-image max-h-[360px] min-w-[100%] object-cover"
-            onClick={() => nextSlide()}
+            className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500"
+            style={{ opacity: opacity }}
           />
         </div>
       </div>
