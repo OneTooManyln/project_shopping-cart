@@ -19,13 +19,13 @@ export default function Slideshow() {
         currentIndex === images.length - 1 ? 0 : currentIndex + 1;
       setCurrentIndex(newIndex);
       setOpacity(1);
-    }, 300);
+    }, 155);
   };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextSlide();
-    }, 3500);
+    }, 3800);
 
     return () => {
       clearInterval(intervalId);
@@ -42,6 +42,17 @@ export default function Slideshow() {
             className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500"
             style={{ opacity: opacity }}
           />
+          <div className="slideshow-nav flex absolute gap-[20px] top-[38.5%] left-[23.2%] transform-translateX-1/2">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={`circle w-[12px] h-[12px] bg-[rgb(251,113,153)] hover:cursor-pointer rounded-3xl ${
+                  currentIndex === index ? "opacity-100" : "opacity-60"
+                } `}
+                onClick={() => setCurrentIndex(index)}
+              ></div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
