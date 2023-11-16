@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component > matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="flex flex-col bg-[rgb(251,113,153)] h-50 w-full"
+  >
+    <div
+      class="w-screen h-6"
+    />
+    <div
+      class="header-banner flex justify-between bg-white border-y-0 border-y-black"
+    >
+      <img
+        alt="Page Header Logo"
+        class="object-contain h-20 mt-5 mb-1"
+        src="/src/assets/Hangzhou_Spark_wordmark.svg"
+      />
+      <div
+        class="box-wrapper flex flex-1 justify-end mr-20 gap-5"
+      >
+        <div
+          class="w-20"
+          id="box"
+        />
+        <div
+          class="w-20"
+          id="box"
+        />
+        <div
+          class="w-20"
+          id="box"
+        />
+        <div
+          class="w-20"
+          id="box"
+        />
+        <div
+          class="w-20"
+          id="box"
+        />
+      </div>
+    </div>
+    <div
+      class="banner-bottom flex justify-center w-screen /*h-[10px]*/ g-[rgb(87,136,206)] bg-white border-b-[1px] border-[rgb(251,113,153)] mt-[3px] py-[10px]"
+    />
+  </header>
+</DocumentFragment>
+`;
