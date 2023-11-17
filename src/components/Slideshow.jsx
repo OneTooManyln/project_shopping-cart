@@ -34,15 +34,15 @@ export default function Slideshow() {
 
   return (
     <div className="slideshow-wrapper px-[20px]">
-      <div className="slideshow bg-black max-w-[1200px] mx-auto mt-[1.25%]">
-        <div className="slideshow-images bg-black w-[54%]">
+      <div className="slideshow flex gap-[10px] max-w-[1200px] mx-auto mt-[1.25%]">
+        <div className="slideshow-images w-[74%]">
           <img
             src={images[currentIndex].url}
             alt=""
             className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500"
             style={{ opacity: opacity }}
           />
-          <div className="slideshow-nav flex absolute gap-[20px] top-[38.5%] left-[23.2%] transform-translateX-1/2">
+          <div className="slideshow-nav flex absolute gap-[20px] top-[38.5%] left-[33.2%] transform-translateX-1/2">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -53,6 +53,19 @@ export default function Slideshow() {
               ></div>
             ))}
           </div>
+        </div>
+        <div className="slideshow-nav-bar flex-1 gap-2 bg-[rgb(251,113,153)]/75 text-white text-[1.4rem]">
+          <ul>
+            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+              Home
+            </li>
+            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+              Shop
+            </li>
+            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+              Cart
+            </li>
+          </ul>
         </div>
       </div>
     </div>
