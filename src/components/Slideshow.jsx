@@ -47,6 +47,7 @@ export default function Slideshow() {
               <div
                 key={index}
                 role="button"
+                data-testid={`nav-button-${index + 1}`}
                 className={`nav-button w-[12px] h-[12px] bg-[rgb(251,113,153)] hover:cursor-pointer rounded-3xl ${
                   currentIndex === index ? "opacity-100" : "opacity-60"
                 } `}
