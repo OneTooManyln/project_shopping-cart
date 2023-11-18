@@ -29,4 +29,24 @@ describe("Slideshow Component", () => {
       });
     });
   });
+
+  it("has correct src for each image", async () => {
+    render(<Slideshow />);
+
+    images.forEach((image, index) => {
+      const imageElement = screen.getByAltText(`Slideshow Image ${index + 1}`);
+      expect(imageElement).toHaveAttribute("src", image.url);
+
+      act(() => {
+        vi.advanceTimersByTime(4000); // Allow time for rendering of next image
+      });
+    });
+  });
+
+  it("renders five nav buttons", () => {
+    render(<Slideshow />);
+
+    const navButtons = screen.getAllByTestId(/nav-button/i);
+    expect(navButtons).toHaveLength(5);
+  });
 });
