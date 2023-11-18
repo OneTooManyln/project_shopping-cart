@@ -38,7 +38,7 @@ export default function Slideshow() {
         <div className="slideshow-images w-[74%]">
           <img
             src={images[currentIndex].url}
-            alt=""
+            alt={`Slideshow Image ${currentIndex + 1}`}
             className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500"
             style={{ opacity: opacity }}
           />
