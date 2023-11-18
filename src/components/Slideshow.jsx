@@ -46,7 +46,8 @@ export default function Slideshow() {
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`circle w-[12px] h-[12px] bg-[rgb(251,113,153)] hover:cursor-pointer rounded-3xl ${
+                role="button"
+                className={`nav-button w-[12px] h-[12px] bg-[rgb(251,113,153)] hover:cursor-pointer rounded-3xl ${
                   currentIndex === index ? "opacity-100" : "opacity-60"
                 } `}
                 onClick={() => setCurrentIndex(index)}
