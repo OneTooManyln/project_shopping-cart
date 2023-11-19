@@ -1,4 +1,5 @@
 import { act, render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import Slideshow from "../Slideshow";
 
@@ -48,5 +49,19 @@ describe("Slideshow Component", () => {
 
     const navButtons = screen.getAllByTestId(/nav-button/i);
     expect(navButtons).toHaveLength(5);
+  });
+
+  it("nav buttons renders correct image", () => {
+    render(<Slideshow />);
+    const user = userEvent.setup();
+
+    images.forEach(async (image, index) => {
+      const navButton = screen.getByTestId(`nav-button-${index + 1}`);
+
+      await user.click(navButton);
+
+      const expectedImage = screen.getByAltText(`Slideshow Image ${index + 1}`);
+      expect(expectedImage).toBeInTheDocument();
+    });
   });
 });
