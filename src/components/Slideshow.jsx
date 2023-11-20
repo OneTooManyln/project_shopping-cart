@@ -56,15 +56,15 @@ export default function Slideshow() {
             ))}
           </div>
         </div>
-        <div className="slideshow-nav-bar flex-1 gap-2 bg-[rgb(251,113,153)]/75 text-white text-[1.4rem]">
+        <div className="slideshow-nav-bar flex-1 gap-2 bg-[rgb(251,113,153)] text-white text-[1.4rem]">
           <ul>
-            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
               Home
             </li>
-            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
               Shop
             </li>
-            <li className="flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(251,113,153)] border-b-2 border-white font-medium">
+            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
               Cart
             </li>
           </ul>
