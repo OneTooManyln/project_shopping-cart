@@ -3,6 +3,7 @@ import App from "../App";
 import Header from "../components/Header";
 import Slideshow from "../components/Slideshow";
 import Shop from "./Shop";
+import Cart from "./Cart";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -17,6 +18,16 @@ export default function Router() {
           <Header />
           <Slideshow />
           <Shop />
+        </>
+      ),
+    },
+    {
+      path: "cart",
+      element: (
+        <>
+          <Header />
+          <Slideshow />
+          <Cart />
         </>
       ),
     },

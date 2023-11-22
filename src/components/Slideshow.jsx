@@ -71,9 +71,12 @@ export default function Slideshow() {
             >
               Shop
             </Link>
-            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
+            <Link
+              to="cart"
+              className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium"
+            >
               Cart
-            </li>
+            </Link>
           </ul>
         </div>
       </div>
