@@ -1,7 +1,5 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import App from "../App";
-import Header from "../components/Header";
-import Slideshow from "../components/Slideshow";
 import Shop from "./Shop";
 import Cart from "./Cart";
 import Home from "./Home";
