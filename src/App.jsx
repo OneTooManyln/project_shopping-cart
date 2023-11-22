@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Slideshow from "./components/Slideshow";
 
@@ -7,6 +7,7 @@ export default function App() {
     <>
       <Header />
       <Slideshow />
+      <Outlet />
     </>
   );
 }
