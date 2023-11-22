@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Slideshow() {
   const images = [
@@ -58,12 +59,18 @@ export default function Slideshow() {
         </div>
         <div className="slideshow-nav-bar flex-1 gap-2 bg-[rgb(251,113,153)] text-white text-[1.4rem]">
           <ul>
-            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
+            <Link
+              to="/"
+              className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium"
+            >
               Home
-            </li>
-            <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
+            </Link>
+            <Link
+              to="shop"
+              className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium"
+            >
               Shop
-            </li>
+            </Link>
             <li className="nav-link flex h-16 items-center pl-4 hover:cursor-pointer hover:bg-[rgb(87,136,206)] border-b-2 border-white font-medium">
               Cart
             </li>
