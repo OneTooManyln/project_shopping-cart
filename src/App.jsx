@@ -7,7 +7,7 @@ export default function App() {
     <>
       <Header />
       <Slideshow />
-      <Link to="home">HOME</Link>
+      <Link to="shop">SHOP</Link>
     </>
   );
 }
