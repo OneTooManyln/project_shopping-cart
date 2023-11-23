@@ -1,3 +1,5 @@
+import FeaturedItems from "../components/FeaturedItems";
+
 export default function Home() {
   return (
     <>
@@ -10,6 +12,7 @@ export default function Home() {
             mollis cursus ante, at ullamcorper augue ultricies ac.
           </p>
         </div>
+        <FeaturedItems />
       </main>
     </>
   );
