@@ -9,16 +9,36 @@ export default function FeaturedItems() {
         </div>
         <div className="content h-[4000px] mt-[5.5%]">
           <div className="pc-cards h-[1600px] grid grid-rows-3 grid-cols-4 gap-4">
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
-            <div className="card-wrapper bg-white bg-black"></div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
+            <div className="card-wrapper bg-white bg-black">
+              <div className="img-container"></div>
+            </div>
           </div>
         </div>
       </div>
