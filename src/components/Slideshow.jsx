@@ -40,10 +40,10 @@ export default function Slideshow() {
           <img
             src={images[currentIndex].url}
             alt={`Slideshow Image ${currentIndex + 1}`}
-            className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500 max-lg:max-h-[250px]"
+            className="slideshow-image max-h-[360px] min-w-[100%] object-cover duration-500 max-lg:max-h-[250px] max-lg:min-h-[250px]"
             style={{ opacity: opacity }}
           />
-          <div className="slideshow-nav flex absolute gap-[20px] top-[38.5%] left-[33.2%] transform-translateX-1/2">
+          <div className="slideshow-nav flex absolute gap-[20px] top-[38.5%] left-[33.2%] transform-translateX-1/2 max-lg:top-[30%] max-lg:left-[28.5%]">
             {images.map((image, index) => (
               <div
                 key={index}
