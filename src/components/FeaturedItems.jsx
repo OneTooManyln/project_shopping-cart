@@ -12,11 +12,11 @@ export default function FeaturedItems() {
           </h3>
         </div>
         <div className="content mt-[5.5%]">
-          <div className="pc-cards h-[1050px] grid grid-rows-2 grid-cols-4 gap-4">
+          <div className="pc-cards min-h-[1050px] grid grid-rows-2 grid-cols-4 gap-4 max-lg:justify-items-center max-lg:grid-cols-1">
             {dataArray.map((data) => (
               <div
                 key={data.id}
-                className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)]"
+                className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)] max-lg:w-[650px] max-lg:min-h-[600px]"
               >
                 <div className="img-container w-full">
                   <img
@@ -25,8 +25,8 @@ export default function FeaturedItems() {
                     className="object-fill h-[240px] w-full"
                   />
                 </div>
-                <div className="content-container flex justify-between flex-col justify-b flex-1 p-4 mt-12 text-black">
-                  <div className="body">
+                <div className="content-container flex justify-between flex-col justify-b flex-1 p-4 mt-12 text-black max-lg:w-full">
+                  <div className="body text-[.9rem]">
                     <p>{data.title}</p>
                   </div>
                   <div className="bottom flex justify-between">
