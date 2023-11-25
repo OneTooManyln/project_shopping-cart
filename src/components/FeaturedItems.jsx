@@ -16,7 +16,7 @@ export default function FeaturedItems() {
             {dataArray.map((data) => (
               <div
                 key={data.id}
-                className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)] max-lg:w-[650px] max-lg:min-h-[600px]"
+                className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)] max-lg:w-[550px] max-lg:min-h-[600px]"
               >
                 <div className="img-container w-full">
                   <img
