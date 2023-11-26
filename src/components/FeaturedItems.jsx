@@ -1,7 +1,27 @@
 import UseAPI from "./UseAPI";
 
 export default function FeaturedItems() {
-  const dataArray = UseAPI();
+  const { APIData, error, loading } = UseAPI();
+
+  if (error) {
+    return (
+      <>
+        <div className="error-message text-center text-7xl max-w-[1200px] my-[5.5%] mx-auto font-bold text-black">
+          <h2>An error was encounterd: {error.message}</h2>
+        </div>
+      </>
+    );
+  }
+
+  if (loading) {
+    return (
+      <>
+        <div className="loading-message text-center text-7xl max-w-[1200px] my-[5.5%] mx-auto font-bold text-black">
+          <h2>Loading...</h2>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -13,7 +33,7 @@ export default function FeaturedItems() {
         </div>
         <div className="content mt-[5.5%]">
           <div className="pc-cards min-h-[1050px] grid grid-rows-2 grid-cols-4 gap-4 max-lg:justify-items-center max-lg:grid-cols-1">
-            {dataArray.map((data) => (
+            {APIData.map((data) => (
               <div
                 key={data.id}
                 className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)] max-lg:w-[550px] max-lg:min-h-[600px]"
