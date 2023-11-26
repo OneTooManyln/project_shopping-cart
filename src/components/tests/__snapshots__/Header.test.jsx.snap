@@ -9,7 +9,7 @@ exports[`Header component > matches snapshot 1`] = `
       class="w-screen h-6"
     />
     <div
-      class="header-banner flex justify-between bg-white border-y-0 border-y-black"
+      class="header-banner flex justify-between bg-white border-y-0 border-y-black max-lg:justify-center"
     >
       <img
         alt="Page Header Logo"
@@ -17,7 +17,7 @@ exports[`Header component > matches snapshot 1`] = `
         src="/src/assets/Hangzhou_Spark_wordmark.svg"
       />
       <div
-        class="box-wrapper flex flex-1 justify-end mr-20 gap-5"
+        class="box-wrapper flex flex-1 justify-end mr-20 gap-5 max-lg:hidden"
       >
         <div
           class="w-20"
