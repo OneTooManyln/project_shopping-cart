@@ -1,7 +1,8 @@
-import { act, render, screen, fireEvent } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import Slideshow from "../Slideshow";
+import { BrowserRouter } from "react-router-dom";
 
 const images = [
   { url: "src/assets/181994333_1883185495167039_3378746544883127820_n.jpg" },
@@ -15,11 +16,19 @@ vi.useFakeTimers();
 
 describe("Slideshow Component", () => {
   it("renders without errors", () => {
-    render(<Slideshow />);
+    render(
+      <BrowserRouter>
+        <Slideshow />
+      </BrowserRouter>,
+    );
   });
 
   it("renders all images in array", async () => {
-    render(<Slideshow />);
+    render(
+      <BrowserRouter>
+        <Slideshow />
+      </BrowserRouter>,
+    );
 
     images.forEach((image, index) => {
       const imageElement = screen.getByAltText(`Slideshow Image ${index + 1}`);
@@ -32,7 +41,11 @@ describe("Slideshow Component", () => {
   });
 
   it("has correct src for each image", async () => {
-    render(<Slideshow />);
+    render(
+      <BrowserRouter>
+        <Slideshow />
+      </BrowserRouter>,
+    );
 
     images.forEach((image, index) => {
       const imageElement = screen.getByAltText(`Slideshow Image ${index + 1}`);
@@ -45,14 +58,22 @@ describe("Slideshow Component", () => {
   });
 
   it("renders five nav buttons", () => {
-    render(<Slideshow />);
+    render(
+      <BrowserRouter>
+        <Slideshow />
+      </BrowserRouter>,
+    );
 
     const navButtons = screen.getAllByTestId(/nav-button/i);
     expect(navButtons).toHaveLength(5);
   });
 
   it("nav buttons renders correct image", () => {
-    render(<Slideshow />);
+    render(
+      <BrowserRouter>
+        <Slideshow />
+      </BrowserRouter>,
+    );
     const user = userEvent.setup();
 
     images.forEach(async (image, index) => {
