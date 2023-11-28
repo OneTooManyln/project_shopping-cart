@@ -1,10 +1,7 @@
 import ErrorDisplay from "./ErrorDisplay";
 import LoadingDisplay from "./LoadingDisplay";
-import UseAPI from "./UseAPI";
 
-export default function FeaturedItems() {
-  const { APIData, error, loading } = UseAPI();
-
+export default function FeaturedItems({ APIData, error, loading }) {
   if (error) {
     return (
       <>

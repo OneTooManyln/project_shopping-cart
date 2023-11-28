@@ -1,6 +1,6 @@
 import FeaturedItems from "../components/FeaturedItems";
 
-export default function Home() {
+export default function Home({ APIData, error, loading }) {
   return (
     <>
       <main className="px-[20px]">
@@ -12,7 +12,7 @@ export default function Home() {
             mollis cursus ante, at ullamcorper augue ultricies ac.
           </p>
         </div>
-        <FeaturedItems />
+        <FeaturedItems APIData={APIData} error={error} loading={loading} />
       </main>
     </>
   );
