@@ -1,3 +1,5 @@
+import ErrorDisplay from "./ErrorDisplay";
+import LoadingDisplay from "./LoadingDisplay";
 import UseAPI from "./UseAPI";
 
 export default function FeaturedItems() {
@@ -6,9 +8,7 @@ export default function FeaturedItems() {
   if (error) {
     return (
       <>
-        <div className="error-message text-center text-7xl max-w-[1200px] my-[5.5%] mx-auto font-bold text-black">
-          <h2>An error was encounterd: {error.message}</h2>
-        </div>
+        <ErrorDisplay error={error} />
       </>
     );
   }
@@ -16,9 +16,7 @@ export default function FeaturedItems() {
   if (loading) {
     return (
       <>
-        <div className="loading-message text-center text-7xl max-w-[1200px] my-[5.5%] mx-auto font-bold text-black">
-          <h2>Loading...</h2>
-        </div>
+        <LoadingDisplay />
       </>
     );
   }
