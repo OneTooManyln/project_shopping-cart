@@ -2,7 +2,7 @@ import ErrorDisplay from "../components/ErrorDisplay";
 import LoadingDisplay from "../components/LoadingDisplay";
 import RenderProducts from "../components/RenderProducts";
 
-export default function Shop({ APIData, error, loading }) {
+export default function Shop({ APIData, error, loading, onProduct }) {
   if (error) {
     return (
       <>
@@ -29,7 +29,7 @@ export default function Shop({ APIData, error, loading }) {
             </h1>
           </div>
           <div className="content mt-[5.5%]">
-            <RenderProducts APIData={APIData} />
+            <RenderProducts APIData={APIData} onProduct={onProduct} />
           </div>
         </div>
       </main>

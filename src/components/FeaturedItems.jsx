@@ -2,7 +2,7 @@ import ErrorDisplay from "./ErrorDisplay";
 import LoadingDisplay from "./LoadingDisplay";
 import RenderProducts from "./RenderProducts";
 
-export default function FeaturedItems({ APIData, error, loading }) {
+export default function FeaturedItems({ APIData, error, loading, onProduct }) {
   if (error) {
     return (
       <>
@@ -28,7 +28,7 @@ export default function FeaturedItems({ APIData, error, loading }) {
           </h3>
         </div>
         <div className="content mt-[5.5%]">
-          <RenderProducts APIData={APIData} />
+          <RenderProducts APIData={APIData} onProduct={onProduct} />
         </div>
       </div>
     </>
