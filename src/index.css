@@ -40,3 +40,17 @@ body {
   width: 20%;
   transform: rotate(135deg) translateX(39.6%) translateY(-430%);
 }
+
+.shop-text {
+  position: relative;
+}
+
+.shop-text:after {
+  content: "";
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  z-index: 2;
+  width: 50%;
+  transform: rotate(135deg) translateX(51%) translateY(-580%);
+}
