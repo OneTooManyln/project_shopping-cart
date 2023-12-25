@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function RenderProducts({ APIData, onProduct }) {
+  const navigate = useNavigate();
+
   const handleClick = (index) => {
     onProduct(APIData[index]);
+    navigate("/product");
   };
 
   return (
@@ -14,23 +17,24 @@ export default function RenderProducts({ APIData, onProduct }) {
             className="card-wrapper flex flex-col items-center bg-[rgb(251,113,153)] max-lg:w-[550px] max-lg:min-h-[600px]"
           >
             <div className="img-container w-full">
-              <Link to="/product">
-                <img
-                  src={data.image}
-                  alt={data.title}
-                  className="object-fill h-[240px] w-full hover:cursor-pointer"
-                  onClick={() => handleClick(index)}
-                />
-              </Link>
+              <img
+                src={data.image}
+                alt={data.title}
+                className="object-fill h-[240px] w-full hover:cursor-pointer"
+                onClick={() => handleClick(index)}
+              />
             </div>
             <div className="content-container flex justify-between flex-col justify-b flex-1 p-4 mt-12 text-black max-lg:w-full">
               <div className="body text-[.9rem]">
                 <p>{data.title}</p>
               </div>
               <div className="bottom flex justify-between">
-                <div className="price">{`$${data.price}`}</div>
-                <button className="cta-button bg-[rgb(87,136,206)] hover:bg-[rgb(87,136,206)]/75 rounded px-2">
-                  BUY
+                <div className="price">{`$${data.price}`}</div>{" "}
+                <button
+                  className="cta-button bg-[rgb(87,136,206)] hover:bg-[rgb(87,136,206)]/75 rounded px-2"
+                  onClick={() => handleClick(index)}
+                >
+                  <p>BUY</p>
                 </button>
               </div>
             </div>
