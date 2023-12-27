@@ -1,5 +1,15 @@
+import { useState } from "react";
+
 export default function Product({ productToDisplay }) {
-  console.log(productToDisplay);
+  const [amountValue, setAmountValue] = useState(1);
+  if (!productToDisplay) {
+    return (
+      <>
+        <h1>Error</h1>
+      </>
+    );
+  }
+
   return (
     <>
       <main className="px-[20px]">
@@ -33,7 +43,12 @@ export default function Product({ productToDisplay }) {
                 <div className="bottom-center flex">
                   <input
                     type="text"
-                    value="1"
+                    value={amountValue}
+                    onClick={(e) => e.target.select()}
+                    onChange={(e) => {
+                      setAmountValue(e.target.value);
+                    }}
+                    maxLength="6"
                     className="product-amount h-[36px] w-[140px] border-[rgb(156,86,108)] border-[1px] text-black text-center"
                   />
                   <ul className="flex flex-col justify-between font-bold text-base text-center ml-[4%]">
