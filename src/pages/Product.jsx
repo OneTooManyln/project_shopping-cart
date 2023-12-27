@@ -37,7 +37,7 @@ export default function Product({ productToDisplay }) {
                 </div>
               </div>
               <div className="proudct-right-bottom flex items-center justify-between p-4 h-[100px] w-[100%] border-[rgb(251,113,153)] border-[1px]">
-                <div className="product-price text-[rgb(255,0,0)] font-bold">
+                <div className="product-price text-[rgb(255,0,0)] font-bold pl-2">
                   ${productToDisplay.price}
                 </div>
                 <div className="bottom-center flex">
