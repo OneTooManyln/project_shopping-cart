@@ -36,32 +36,43 @@ export default function Product({ productToDisplay }) {
                   {productToDisplay.description}
                 </div>
               </div>
-              <div className="proudct-right-bottom flex items-center justify-between p-4 h-[100px] w-[100%] border-[rgb(251,113,153)] border-[1px]">
-                <div className="product-price text-[rgb(255,0,0)] font-bold pl-2">
-                  ${productToDisplay.price}
+              <div className="proudct-right-bottom flex items-center justify-between p-4 h-[140px] w-[100%] border-[rgb(251,113,153)] border-[1px]">
+                <div className="product-price h-[56px]">
+                  <p className="text-[rgb(156,86,108)] text-sm">
+                    Selling Price
+                  </p>
+                  <p className=" text-[rgb(255,0,0)] font-bold pl-2">
+                    ${productToDisplay.price}
+                  </p>
                 </div>
-                <div className="bottom-center flex">
-                  <input
-                    type="text"
-                    value={amountValue}
-                    onClick={(e) => e.target.select()}
-                    onChange={(e) => {
-                      setAmountValue(e.target.value);
-                    }}
-                    maxLength="6"
-                    className="product-amount h-[36px] w-[140px] border-[rgb(156,86,108)] border-[1px] text-black text-center"
-                  />
-                  <ul className="flex flex-col justify-between font-bold text-base text-center ml-[4%]">
-                    <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
-                      +
-                    </li>
-                    <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
-                      -
-                    </li>
-                  </ul>
+                <div className="bottom-center 4 h-[56px]">
+                  <div className="top">
+                    <p className="text-[rgb(156,86,108)] text-sm">Amount</p>
+                  </div>
+                  <div className="bottom flex">
+                    <input
+                      type="text"
+                      name="product_amount"
+                      value={amountValue}
+                      onClick={(e) => e.target.select()}
+                      onChange={(e) => {
+                        setAmountValue(e.target.value);
+                      }}
+                      maxLength="6"
+                      className="product-amount h-[36px] w-[140px] border-[rgb(156,86,108)] border-[1px] text-black text-center"
+                    />
+                    <ul className="flex flex-col justify-between font-bold text-base text-center ml-[4%]">
+                      <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
+                        +
+                      </li>
+                      <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
+                        -
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-                <button className="product-atc p-2 bg-[rgb(251,113,153)]">
+                <button className="product-atc p-2 bg-[rgb(251,113,153)] h-[56px]">
                   Add To Cart
                 </button>
               </div>
