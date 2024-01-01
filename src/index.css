@@ -54,3 +54,22 @@ body {
   width: 50%;
   transform: rotate(135deg) translateX(51%) translateY(-580%);
 }
+
+.total-pay-options > *:hover .left .active {
+  border-color: rgb(213, 213, 213);
+  transform: scale(1.2);
+}
+
+.total-pay-options > *:hover .left .inactive {
+  background-color: rgb(181, 181, 181);
+}
+
+.active {
+  transition: transform 0.3s ease;
+}
+
+.item-amount:focus {
+  outline: none;
+  border: none;
+  text-align: center;
+}
