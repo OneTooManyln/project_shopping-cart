@@ -10,9 +10,14 @@ import Product from "./Product";
 export default function Router() {
   const { APIData, error, loading } = UseAPI();
   const [productToDisplay, setProductToDisplay] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
   const setProduct = (index) => {
     setProductToDisplay(index);
+  };
+
+  const setCart = (item) => {
+    setCartItems([...cartItems, item]);
   };
 
   const router = createBrowserRouter([
@@ -45,7 +50,9 @@ export default function Router() {
         { path: "cart", element: <Cart error={error} loading={loading} /> },
         {
           path: "product",
-          element: <Product productToDisplay={productToDisplay} />,
+          element: (
+            <Product productToDisplay={productToDisplay} onAddCart={setCart} />
+          ),
         },
       ],
     },

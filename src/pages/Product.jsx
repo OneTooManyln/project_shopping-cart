@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function Product({ productToDisplay }) {
+export default function Product({ productToDisplay, onAddCart }) {
   const [isAddedDisplayVisible, setIsAddedDisplayVisible] = useState(false);
   const [amountValue, setAmountValue] = useState(1);
 
   const displayProductAdded = () => {
     setIsAddedDisplayVisible(true);
-
+    onAddCart(productToDisplay);
     setTimeout(() => {
       setIsAddedDisplayVisible(false);
     }, 3000);
