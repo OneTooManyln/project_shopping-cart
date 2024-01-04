@@ -1,7 +1,17 @@
 import { useState } from "react";
 
 export default function Product({ productToDisplay }) {
+  const [isAddedDisplayVisible, setIsAddedDisplayVisible] = useState(false);
   const [amountValue, setAmountValue] = useState(1);
+
+  const displayProductAdded = () => {
+    setIsAddedDisplayVisible(true);
+
+    setTimeout(() => {
+      setIsAddedDisplayVisible(false);
+    }, 3000);
+  };
+
   if (!productToDisplay) {
     return (
       <>
@@ -12,6 +22,20 @@ export default function Product({ productToDisplay }) {
 
   return (
     <>
+      {isAddedDisplayVisible && (
+        <div className="item-added absolute flex items-center justify-center gap-8 w-[70%] h-[150px] top-[40%] left-[15%] px-2 py-8 text-2xl font-bold text-[rgb(33,105,243)] bg-[rgb(251,113,153)] text-white border-2 border-black shadow-lg">
+          <div className="item-added-img">
+            <img
+              src={productToDisplay.image}
+              alt=""
+              className="object-fit h-[100px] w-[100px]"
+            />
+          </div>
+          <div className="item-added-text">
+            <h1>added to cart</h1>
+          </div>
+        </div>
+      )}
       <main className="px-[20px]">
         <div className="product-container max-w-[1200px] mt-[5.5%] mx-[8%]">
           <div className="product-title p-2 border-b-[1px]">
@@ -71,8 +95,10 @@ export default function Product({ productToDisplay }) {
                     </ul>
                   </div>
                 </div>
-
-                <button className="product-atc p-2 bg-[rgb(251,113,153)] h-[56px]">
+                <button
+                  onClick={() => displayProductAdded()}
+                  className="product-atc p-2 bg-[rgb(251,113,153)] h-[56px]"
+                >
                   Add To Cart
                 </button>
               </div>
