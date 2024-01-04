@@ -23,7 +23,7 @@ export default function Product({ productToDisplay }) {
   return (
     <>
       {isAddedDisplayVisible && (
-        <div className="item-added absolute flex items-center justify-center gap-8 w-[70%] h-[150px] top-[40%] left-[15%] px-2 py-8 text-2xl font-bold text-[rgb(33,105,243)] bg-[rgb(251,113,153)] text-white border-2 border-black shadow-lg">
+        <div className="item-added fixed flex items-center justify-center gap-8 w-[70%] h-[150px] top-[40%] left-[15%] px-2 py-8 text-2xl font-bold text-[rgb(33,105,243)] bg-[rgb(251,113,153)] text-white border-2 border-black shadow-lg">
           <div className="item-added-img">
             <img
               src={productToDisplay.image}
