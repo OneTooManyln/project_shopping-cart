@@ -12,6 +12,16 @@ export default function Product({ productToDisplay, onAddCart }) {
     }, 3000);
   };
 
+  const handleIncrement = () => {
+    setAmountValue(amountValue + 1);
+  };
+
+  const handeDecrement = () => {
+    if (amountValue > 1) {
+      setAmountValue(amountValue - 1);
+    }
+  };
+
   if (!productToDisplay) {
     return (
       <>
@@ -80,17 +90,31 @@ export default function Product({ productToDisplay, onAddCart }) {
                       value={amountValue}
                       onClick={(e) => e.target.select()}
                       onChange={(e) => {
-                        setAmountValue(e.target.value);
+                        setAmountValue(
+                          e.target.value === "" || 0
+                            ? 1
+                            : parseInt(e.target.value),
+                        );
                       }}
                       maxLength="6"
                       className="product-amount h-[36px] w-[140px] border-[rgb(156,86,108)] border-[1px] text-black text-center"
                     />
                     <ul className="flex flex-col justify-between font-bold text-base text-center ml-[4%]">
-                      <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
-                        +
+                      <li className="">
+                        <button
+                          className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0"
+                          onClick={() => handleIncrement()}
+                        >
+                          +
+                        </button>
                       </li>
-                      <li className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0">
-                        -
+                      <li className="">
+                        <button
+                          className="bg-[rgb(251,113,153)] flex items-center justify-center hover:cursor-pointer w-[26px] h-[14px] p-0"
+                          onClick={() => handeDecrement()}
+                        >
+                          -
+                        </button>
                       </li>
                     </ul>
                   </div>
