@@ -3,7 +3,8 @@ import { useState } from "react";
 export default function Cart({ cartItems }) {
   const [isNowActive, setIsNowActive] = useState(true);
   const [isLaterActive, setIslaterActive] = useState(false);
-  const [isCartEmpty, setIsCartEmpty] = useState(cartItems.length === 0);
+  const isCartEmpty = cartItems.length === 0;
+  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
 
   const handleNowClick = () => {
     setIsNowActive(true);
@@ -55,7 +56,9 @@ export default function Cart({ cartItems }) {
                           <option value="nine">9</option>
                           <option value="ten">10</option>
                         </select>
-                        <div className="item-total text-black">3,960</div>
+                        <div className="item-total text-black">
+                          {item.price}
+                        </div>
                       </div>
                       <div className="item-divider mt-[5%] m-auto border-b-2 w-[80%]"></div>
                     </div>
@@ -66,13 +69,13 @@ export default function Cart({ cartItems }) {
                 </div>
               </div>
 
-              <div className="cart-total text-black border-[3px] w-[360px]">
+              <div className="cart-total text-black border-[3px] w-[360px] max-h-[465.13px] h-[100%]">
                 <div className="total-header flex items-center justify-between p-[16px] border-b-[3px]">
                   <div className="header-title">
                     <h1>Total</h1>
                   </div>
                   <div className="header-total text-lg text-[rgb(244,67,54)] font-bold tracking-wide">
-                    1,980
+                    {cartTotal}
                   </div>
                 </div>
                 <div className="total-pay-options flex flex-col gap-[2px] m-[16px]">
