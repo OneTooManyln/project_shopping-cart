@@ -47,7 +47,7 @@ export default function Router() {
             />
           ),
         },
-        { path: "cart", element: <Cart error={error} loading={loading} /> },
+        { path: "cart", element: <Cart cartItems={cartItems} /> },
         {
           path: "product",
           element: (
