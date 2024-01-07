@@ -11,6 +11,7 @@ export default function Router() {
   const { APIData, error, loading } = UseAPI();
   const [productToDisplay, setProductToDisplay] = useState(null);
   const [cartItems, setCartItems] = useState([]);
+  const [productAmountValue, setProductAmountValue] = useState(1);
 
   const setProduct = (index) => {
     setProductToDisplay(index);
@@ -47,11 +48,24 @@ export default function Router() {
             />
           ),
         },
-        { path: "cart", element: <Cart cartItems={cartItems} /> },
+        {
+          path: "cart",
+          element: (
+            <Cart
+              cartItems={cartItems}
+              productAmountValue={productAmountValue}
+            />
+          ),
+        },
         {
           path: "product",
           element: (
-            <Product productToDisplay={productToDisplay} onAddCart={setCart} />
+            <Product
+              productToDisplay={productToDisplay}
+              onAddCart={setCart}
+              productAmountValue={productAmountValue}
+              setProductAmountValue={setProductAmountValue}
+            />
           ),
         },
       ],
