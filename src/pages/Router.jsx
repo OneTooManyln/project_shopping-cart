@@ -18,7 +18,18 @@ export default function Router() {
   };
 
   const setCart = (item) => {
-    setCartItems([...cartItems, item]);
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === item.id,
+    );
+
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].amount += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      const updatedItem = { ...item, amount: 1 };
+      setCartItems([...cartItems, updatedItem]);
+    }
   };
 
   const router = createBrowserRouter([
