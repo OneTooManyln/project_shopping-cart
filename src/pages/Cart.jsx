@@ -44,17 +44,20 @@ export default function Cart({ cartItems }) {
                         </button>
                       </div>
                       <div className="item-bottom flex justify-between items-end mt-[15px]">
-                        <select className="item-amount text-black bg-[rgb(237,237,237)] w-[105px] h-[60px] hover:cursor-pointer hover:bg-[rgb(213,213,213)]">
-                          <option value="one">1</option>
-                          <option value="two">2</option>
-                          <option value="three">3</option>
-                          <option value="four">4</option>
-                          <option value="five">5</option>
-                          <option value="six">6</option>
-                          <option value="seven">7</option>
-                          <option value="eight">8</option>
-                          <option value="nine">9</option>
-                          <option value="ten">10</option>
+                        <select
+                          value={item.amount}
+                          className="item-amount text-black bg-[rgb(237,237,237)] w-[105px] h-[60px] hover:cursor-pointer hover:bg-[rgb(213,213,213)]"
+                        >
+                          <option value={1}>1</option>
+                          <option value={2}>2</option>
+                          <option value={3}>3</option>
+                          <option value={4}>4</option>
+                          <option value={5}>5</option>
+                          <option value={6}>6</option>
+                          <option value={7}>7</option>
+                          <option value={8}>8</option>
+                          <option value={9}>9</option>
+                          <option value={10}>10</option>
                         </select>
                         <div className="item-total text-black">
                           {item.price}
