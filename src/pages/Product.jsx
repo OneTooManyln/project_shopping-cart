@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-export default function Product({ productToDisplay, onAddCart }) {
+export default function Product({
+  productToDisplay,
+  onAddCart,
+  productAmountValue,
+  setProductAmountValue,
+}) {
   const [isAddedDisplayVisible, setIsAddedDisplayVisible] = useState(false);
-  const [amountValue, setAmountValue] = useState(1);
 
   const displayProductAdded = () => {
     setIsAddedDisplayVisible(true);
@@ -13,12 +17,14 @@ export default function Product({ productToDisplay, onAddCart }) {
   };
 
   const handleIncrement = () => {
-    setAmountValue(amountValue + 1);
+    if (productAmountValue <= 999998) {
+      setProductAmountValue(productAmountValue + 1);
+    }
   };
 
   const handeDecrement = () => {
-    if (amountValue > 1) {
-      setAmountValue(amountValue - 1);
+    if (productAmountValue > 1) {
+      setProductAmountValue(productAmountValue - 1);
     }
   };
 
@@ -87,10 +93,10 @@ export default function Product({ productToDisplay, onAddCart }) {
                     <input
                       type="text"
                       name="product_amount"
-                      value={amountValue}
+                      value={productAmountValue}
                       onClick={(e) => e.target.select()}
                       onChange={(e) => {
-                        setAmountValue(
+                        setProductAmountValue(
                           e.target.value === "" || 0
                             ? 1
                             : parseInt(e.target.value),
