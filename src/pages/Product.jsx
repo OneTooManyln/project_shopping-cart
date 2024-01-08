@@ -11,6 +11,7 @@ export default function Product({
   const displayProductAdded = () => {
     setIsAddedDisplayVisible(true);
     onAddCart(productToDisplay);
+    setProductAmountValue(1);
     setTimeout(() => {
       setIsAddedDisplayVisible(false);
     }, 3000);
