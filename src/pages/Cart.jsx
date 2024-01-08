@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ cartItems, setCartItems, onDelete }) {
   const [isNowActive, setIsNowActive] = useState(true);
@@ -8,6 +9,7 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
     (total, item) => total + item.price * item.amount,
     0,
   );
+  const navigate = useNavigate();
 
   const handleAmountChange = (event, itemId) => {
     const newAmount = parseInt(event.target.value, 10);
@@ -27,6 +29,10 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
   const handleLaterClick = () => {
     setIsNowActive(false);
     setIslaterActive(true);
+  };
+
+  const handelReturnClick = () => {
+    navigate("/shop");
   };
 
   return (
@@ -84,7 +90,10 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
                     </div>
                   ))}
                 </div>
-                <div className="return-btn flex items-center justify-center h-[58px] w-[360px] bg-[rgb(233,240,254)] text-xl font-bold text-[rgb(33,105,243)] rounded-sm hover:border-[1px] hover:cursor-pointer hover:border-[rgb(33,105,243)]">
+                <div
+                  onClick={() => handelReturnClick()}
+                  className="return-btn flex items-center justify-center h-[58px] w-[360px] bg-[rgb(233,240,254)] text-xl font-bold text-[rgb(33,105,243)] rounded-sm hover:border-[1px] hover:cursor-pointer hover:border-[rgb(33,105,243)]"
+                >
                   <h1>Return to shop</h1>
                 </div>
               </div>
