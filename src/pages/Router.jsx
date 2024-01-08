@@ -24,10 +24,10 @@ export default function Router() {
 
     if (existingItemIndex !== -1) {
       const updatedCartItems = [...cartItems];
-      updatedCartItems[existingItemIndex].amount += 1;
+      updatedCartItems[existingItemIndex].amount += productAmountValue;
       setCartItems(updatedCartItems);
     } else {
-      const updatedItem = { ...item, amount: 1 };
+      const updatedItem = { ...item, amount: productAmountValue };
       setCartItems([...cartItems, updatedItem]);
     }
   };
