@@ -1,10 +1,23 @@
 import { useState } from "react";
 
-export default function Cart({ cartItems }) {
+export default function Cart({ cartItems, setCartItems }) {
   const [isNowActive, setIsNowActive] = useState(true);
   const [isLaterActive, setIslaterActive] = useState(false);
   const isCartEmpty = cartItems.length === 0;
-  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+  const cartTotal = cartItems.reduce(
+    (total, item) => total + item.price * item.amount,
+    0,
+  );
+
+  const handleAmountChange = (event, itemId) => {
+    const newAmount = parseInt(event.target.value, 10);
+
+    const updatedCartItems = cartItems.map((cartItem) =>
+      cartItem.id === itemId ? { ...cartItem, amount: newAmount } : cartItem,
+    );
+
+    setCartItems(updatedCartItems);
+  };
 
   const handleNowClick = () => {
     setIsNowActive(true);
@@ -46,6 +59,7 @@ export default function Cart({ cartItems }) {
                       <div className="item-bottom flex justify-between items-end mt-[15px]">
                         <select
                           value={item.amount}
+                          onChange={(e) => handleAmountChange(e, item.id)}
                           className="item-amount text-black bg-[rgb(237,237,237)] w-[105px] h-[60px] hover:cursor-pointer hover:bg-[rgb(213,213,213)]"
                         >
                           <option value={1}>1</option>
