@@ -61,12 +61,7 @@ export default function Router() {
         },
         {
           path: "cart",
-          element: (
-            <Cart
-              cartItems={cartItems}
-              productAmountValue={productAmountValue}
-            />
-          ),
+          element: <Cart cartItems={cartItems} setCartItems={setCartItems} />,
         },
         {
           path: "product",
