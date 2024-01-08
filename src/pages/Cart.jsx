@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Cart({ cartItems, setCartItems }) {
+export default function Cart({ cartItems, setCartItems, onDelete }) {
   const [isNowActive, setIsNowActive] = useState(true);
   const [isLaterActive, setIslaterActive] = useState(false);
   const isCartEmpty = cartItems.length === 0;
@@ -42,7 +42,7 @@ export default function Cart({ cartItems, setCartItems }) {
             <div className="cart-main flex justify-between mt-[5%]">
               <div className="left flex flex-col items-center gap-4">
                 <div className="cart-items flex flex-col gap-8 text-black pb-4 border-b-[1px]">
-                  {cartItems.map((item) => (
+                  {cartItems.map((item, index) => (
                     <div key={item.id} className="item w-[500px]">
                       <div className="item-top flex justify-between items-start">
                         <div className="item-img h-[105px] w-[105px] border-[1px] border-[rgb(239,242,243)] hover:cursor-pointer">
@@ -52,7 +52,10 @@ export default function Cart({ cartItems, setCartItems }) {
                             className="object-fill h-[100%] w-[100%]"
                           />
                         </div>
-                        <button className="item-delete-btn bg-[rgb(237,237,237)] text-xs text-black p-2 hover:cursor-pointer hover:bg-[rgb(213,213,213)]">
+                        <button
+                          onClick={() => onDelete(index)}
+                          className="item-delete-btn bg-[rgb(237,237,237)] text-xs text-black p-2 hover:cursor-pointer hover:bg-[rgb(213,213,213)]"
+                        >
                           delete
                         </button>
                       </div>
