@@ -72,6 +72,7 @@ export default function Router() {
             <Cart
               cartItems={cartItems}
               setCartItems={setCartItems}
+              onProduct={setProduct}
               onDelete={deleteItem}
             />
           ),
