@@ -17,6 +17,7 @@ export default function Router() {
     setProductToDisplay(index);
   };
 
+  //add item
   const setCart = (item) => {
     const existingItemIndex = cartItems.findIndex(
       (cartItem) => cartItem.id === item.id,
@@ -30,6 +31,12 @@ export default function Router() {
       const updatedItem = { ...item, amount: productAmountValue };
       setCartItems([...cartItems, updatedItem]);
     }
+  };
+
+  const deleteItem = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
   };
 
   const router = createBrowserRouter([
@@ -61,7 +68,13 @@ export default function Router() {
         },
         {
           path: "cart",
-          element: <Cart cartItems={cartItems} setCartItems={setCartItems} />,
+          element: (
+            <Cart
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              onDelete={deleteItem}
+            />
+          ),
         },
         {
           path: "product",
