@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Cart({ cartItems, setCartItems, onDelete }) {
+export default function Cart({ cartItems, setCartItems, onDelete, onProduct }) {
   const [isNowActive, setIsNowActive] = useState(true);
   const [isLaterActive, setIslaterActive] = useState(false);
   const [isOrderDisplayVisible, setIsOrderDisplayVisible] = useState(false);
@@ -44,6 +44,11 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
     }, 3000);
   };
 
+  const handleProductClick = (index) => {
+    onProduct(cartItems[index]);
+    navigate("/product");
+  };
+
   return (
     <>
       {isOrderDisplayVisible && (
@@ -67,7 +72,10 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
                   {cartItems.map((item, index) => (
                     <div key={item.id} className="item w-[500px]">
                       <div className="item-top flex justify-between items-start">
-                        <div className="item-img h-[105px] w-[105px] border-[1px] border-[rgb(239,242,243)] hover:cursor-pointer">
+                        <div
+                          onClick={() => handleProductClick(index)}
+                          className="item-img h-[105px] w-[105px] border-[1px] border-[rgb(239,242,243)] hover:cursor-pointer"
+                        >
                           <img
                             src={item.image}
                             alt=""
