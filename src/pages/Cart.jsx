@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function Cart({ cartItems, setCartItems, onDelete }) {
   const [isNowActive, setIsNowActive] = useState(true);
   const [isLaterActive, setIslaterActive] = useState(false);
+  const [isOrderDisplayVisible, setIsOrderDisplayVisible] = useState(false);
   const isCartEmpty = cartItems.length === 0;
   const cartTotal = cartItems.reduce(
     (total, item) => total + item.price * item.amount,
@@ -35,8 +36,23 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
     navigate("/shop");
   };
 
+  const handleBuyClick = () => {
+    setIsOrderDisplayVisible(true);
+    setTimeout(() => {
+      setIsOrderDisplayVisible(false);
+      setCartItems([]);
+    }, 3000);
+  };
+
   return (
     <>
+      {isOrderDisplayVisible && (
+        <div className="order-display fixed flex items-center justify-center w-[70%] h-[13%] top-[40%] left-[15%] px-2 py-8 text-2xl font-bold text-[rgb(33,105,243)] bg-[rgb(251,113,153)] text-white border-2 border-black shadow-lg">
+          <div className="order-display-text">
+            <h1>items ordered</h1>
+          </div>
+        </div>
+      )}
       <main className="px-[20px]">
         <div className="cart-container max-w-[1200px] mt-[5.5%] mx-[8%]">
           <div className="cart-title p-2 border-b-[1px]">
@@ -165,8 +181,11 @@ export default function Cart({ cartItems, setCartItems, onDelete }) {
                       </p>
                     </div>
                   </div>
-                  <div className="buy-button flex justify-center items-center bg-[rgb(33,105,243)] h-[73px] mt-2 text-white font-medium text-2xl hover:cursor-pointer">
-                    <h1>Buy now</h1>
+                  <div
+                    onClick={() => handleBuyClick()}
+                    className="buy-button flex justify-center items-center bg-[rgb(33,105,243)] h-[73px] mt-2 text-white font-medium text-2xl hover:cursor-pointer"
+                  >
+                    <h1>Buy</h1>
                   </div>
                 </div>
               </div>
