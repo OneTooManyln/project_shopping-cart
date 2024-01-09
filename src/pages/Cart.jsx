@@ -74,13 +74,22 @@ export default function Cart({ cartItems, setCartItems, onDelete, onProduct }) {
                       <div className="item-top flex justify-between items-start">
                         <div
                           onClick={() => handleProductClick(index)}
-                          className="item-img h-[105px] w-[105px] border-[1px] border-[rgb(239,242,243)] hover:cursor-pointer"
+                          className="item-img flex items-center gap-4"
                         >
-                          <img
-                            src={item.image}
-                            alt=""
-                            className="object-fill h-[100%] w-[100%]"
-                          />
+                          <div className="item-img-container h-[105px] w-[105px] border-[1px] border-[rgb(239,242,243)] hover:cursor-pointer">
+                            <img
+                              src={item.image}
+                              alt=""
+                              className="object-fill h-[100%] w-[100%]"
+                            />
+                          </div>
+
+                          <div
+                            onClick={() => handleProductClick(index)}
+                            className="img-title text-xs max-w-[50%] hover:text-[rgb(33,105,243)] hover:cursor-pointer"
+                          >
+                            {item.title}
+                          </div>
                         </div>
                         <button
                           onClick={() => onDelete(index)}
