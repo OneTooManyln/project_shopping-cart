@@ -5,7 +5,7 @@ export default function Header() {
         <div className="w-screen h-6"></div>
         <div className="header-banner flex justify-between bg-white border-y-0 border-y-black max-lg:justify-center">
           <img
-            src="/src/assets/Hangzhou_Spark_wordmark.svg"
+            src="assets/Hangzhou_Spark_wordmark.svg"
             alt="Page Header Logo"
             className="object-contain h-20 mt-5 mb-1"
           />
